@@ -1,6 +1,6 @@
 # Code Climate Decorum Engine
 
-[![Code Climate](https://codeclimate.com/github/noahd1/decorum/badges/gpa.svg)](https://codeclimate.com/github/decorum/curses)
+[![Code Climate](https://codeclimate.com/github/noahd1/decorum/badges/gpa.svg)](https://codeclimate.com/github/noahd1/decorum)
 
 `decorum` is a Code Climate engine that enforces Good Behavior in your source code. Behavior - like human behavior, not code behavior. To start, decorum looks for curse words in your source code.
 
