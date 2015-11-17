@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift(
+  File.expand_path(File.join(File.dirname(__FILE__), "../lib"))
+)
+
+require 'cc/engine/decorum'
+
+if File.exist?("/config.json")
+  engine_config = JSON.parse(File.read("/config.json"))
+else
+  engine_config = {}
+end
+
+require "cc/engine/profanity_dictionary"
+
+dictionary_file = File.expand_path(File.join(File.dirname(__FILE__), "../config/profanities/en"))
+dictionary = CC::Engine::ProfanityDictionary.from_file(dictionary_file)
+
+CC::Engine::Decorum.new("/code", engine_config, dictionary, STDOUT).run
