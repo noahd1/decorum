@@ -38,6 +38,8 @@ module CC
 
       def emit_issue(file, result)
         @io.print(issue_json(file, result) + "\0")
+      ensure
+        return
       end
 
       def issue_json(file, result)
