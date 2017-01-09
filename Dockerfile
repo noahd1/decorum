@@ -1,6 +1,8 @@
 FROM ruby:2.2.2
 MAINTAINER "Noah Davis"
 
+ENV LANG C.UTF-8
+
 WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/

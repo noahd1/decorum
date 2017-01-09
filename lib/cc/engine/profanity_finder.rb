@@ -18,12 +18,17 @@ module CC
 
       def profanities
         @profanities ||= [].tap do |results|
-          file_contents.split(/\n/).each_with_index do |line, i|
-            @dictionary.each do |bad|
-              if pos = line =~ /\b#{bad}\b/i
-                results << Result.new(line_number: i + 1, column: pos + 1, profanity: bad)
+          begin
+            file_contents.split("\n").each_with_index do |line, i|
+              @dictionary.each do |bad|
+                if pos = line =~ /\b#{bad}\b/i
+                  results << Result.new(line_number: i + 1, column: pos + 1, profanity: bad)
+                end
               end
             end
+          rescue ArgumentError
+            STDERR.puts "Nope, dawg. :( #{@file}"
+            []
           end
         end
       end
